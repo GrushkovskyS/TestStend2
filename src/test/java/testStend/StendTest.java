@@ -46,7 +46,7 @@ public class StendTest extends AbstractTest {
     @Test
     @Order(4)
     @DisplayName("Проверка сортировки ASC и DESC чужих постов")
-    void NotMeФысВуыс()throws InterruptedException{
+    void NotMeAscDesc()throws InterruptedException{
         WebElement switchr = getDriver().findElement(By.xpath(".//div[@class=\"mdc-switch__icons\"]"));
         switchr.click();
         Thread.sleep(2000);
@@ -54,6 +54,15 @@ public class StendTest extends AbstractTest {
         button.click();
         Thread.sleep(2000);
         Assertions.assertNotNull(getDriver().findElement(By.xpath(".//h1[contains(text(),\"Blog\")]")));
+    }
+    @Test
+    @Order(5)
+    @DisplayName("Изовражение название и описание в своих постах")
+    void myPost()throws InterruptedException{
+        Thread.sleep(2000);
+        Assertions.assertNotNull(getDriver().findElement(By.cssSelector(".posts.svelte-127jg4t")));
+        Assertions.assertNotNull(getDriver().findElement(By.xpath(".//h2[contains(text(),\"New Post 7\")]")));
+        Assertions.assertNotNull(getDriver().findElement(By.xpath(".//div[contains(text(),\"Kulak\")]")));
     }
 
 
